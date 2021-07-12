@@ -13,3 +13,7 @@ class Trip(models.Model):
 class Photo(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     image = CharField(max_length=200)
+
+class Diary_Entry(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    content = models.TextField()
