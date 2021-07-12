@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 # Define the home view
 def home(request):
-  return render(request, 'base.html')
+  return render(request, 'about.html')
 
 def about(request):
   return render(request, 'about.html')
