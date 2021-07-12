@@ -1,5 +1,73 @@
 # Contributing to Tabby
 
+## Task Organization
+
+To keep tasks and progress organized, we're using both Trello and GitHub
+Projects. Tasks that need to be done are added to the GH Project as Issues on
+the repository:
+
+1. Open the [issues tab](https://github.com/una-ada/Tabby/issues) on the repo.
+2. Click on [new issue](https://github.com/una-ada/Tabby/issues/new).
+3. The title should shortly describe the task to be done.
+4. The description is only recommended and not completely necessary, but for
+   some tasks a further explanation of what needs to be done can be included.
+   This may also include links to reference materials for new features. For
+   bugs, you should describe when and how the bug occurs and, if possible, where
+   in the source code the bug comes form.
+5. Assignees can be set by any contributor, and should be set to whoever is in
+   charge of the relevant parts of the projects:
+6. Labels can be set to describe what kind of task this is, most tasks will be
+   marked as `feat` for feature requests and suggestions, followed by `fix` for
+   bugs and other errors in the project.
+7. The project for the issue should also be set for the current MVP project on
+   the repo. If the "MVP" project does not show up immediately, click on the
+   "repository" tab in the menu for assigning the issue to a project.
+8. Milestones can also be set in the future, if we decide on future releases
+   (e.g. "Version 1.1" for adding embedded maps).
+9. Finally, click on the "Submit new issue" button.
+
+Once an issue is added to the repo, it will also show up in the project board it
+was assigned to. Since the current project is an automated Kanban-style board,
+it should show up in the "To Do" column automatically. The issue can also be
+attached to Trello cards using the GitHub power up.
+
+If the power up is not currently added to the Trello board, it can be added
+following these steps:
+
+1. Open the Trello board.
+2. If the board menu is not already open, click the "... Show menu" button in
+   the top right corner.
+3. In the third section of the menu, click the "Power-Ups" button.
+4. On the left side of the Power-Ups dialog, type "GitHub" into the search
+   field.
+5. Select the "GitHub" power-up to add it.
+6. Refer to
+   [this page](https://help.trello.com/article/1065-using-the-github-power-up)
+   for authenticating your GitHub account if it is not already connected to
+   Trello.
+7. Click the "Settings" button on the power-up card once it has been added.
+8. Click "Edit Power-Up settings".
+9. Click "Add repo".
+10. Find the repo for this project and select it.
+
+With the GitHub Power-Up added to the board, issues can be attached to cards
+with the following steps:
+
+1. Click the pencil button on the top-right of the card.
+2. Click "Open Card".
+3. In the "Power-Ups" section, click the "GitHub" button.
+4. Click "Attach Issue..."
+5. Select the issue you would like to attach; if it does not show up
+   immediately, try searching by the issue number or title.
+6. Once an issue is attached, if the settings on the Power-Up have not been
+   changed, Trello will automatically add a comment to the issue with a link to
+   the Trello card.
+
+Closing issues should always be done via pull requests if it is not marked as
+`wontfix` or `dupe`. To do this, an additional step is added to the pull request
+process: adding attachment keywords to the description like
+"Closes #&lt;issue number&gt;".
+
 ## Styleguides
 
 ### Git Commit Messages

@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'Tabby.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tabby',
+        'NAME': 'Tabby',
     }
 }
 
