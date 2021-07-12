@@ -1,0 +1,159 @@
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  main {
+    background: blue;
+    display: flex;
+    height: auto;
+    width: 70%;
+    margin: 60px 0 0 0;
+    flex-direction: column;
+  }
+  
+  header {
+    background: violet;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 70px 0;
+  }
+  
+  #navHomeSection {
+    background: orange;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #navHomeButton {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    color: black;
+  }
+  
+  #navOtherSection {
+    background: yellowgreen;
+    height: 100%;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navOtherBlock {
+    background: yellow;
+    height: 100%;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .navOtherButton {
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .generalContent {
+    background: palegreen;
+    height: auto;
+    width: 100%;
+  }
+  
+  .generalContentHeading {
+    background: olive;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  #seeMoreButton {
+    background: pink;
+  }
+  
+  .generalContentBlock {
+    background: rebeccapurple;
+    height: 400px;
+    width: 100%;
+    display: flex;
+  }
+  
+  #tripBlock {
+    background: lightcoral;
+    height: 200px;
+    width: 300px;
+    border-radius: 12px;
+    border: none;
+    position: relative;
+    padding: 0;
+    display: flex;
+    margin: 0 10px 10px 0;
+  }
+  
+  #tripImage {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    border-radius: 12px;
+  }
+  
+  .tripImageShading {
+    background: black;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border-radius: 12px;
+    opacity: 10%;
+    position: absolute;
+  }
+  
+  .tripContent {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    border-radius: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  #tripName {
+    color: white;
+    z-index: 1;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: start;
+  }
+
+  #tripUserName {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: start;
+  }
+  
+  .tripDetailBlock {
+    margin: 0 0 20px 30px;
+  }
+  
+  
+  
+  
+  
