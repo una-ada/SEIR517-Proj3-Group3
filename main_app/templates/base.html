@@ -8,9 +8,67 @@
     <title>Tabby</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- style how you want bbang (home page) -->
-<!-- I put in the sample href-you dont have to use it-->
+    <main>
+        <header>
+          <div id="navHomeSection">
+            <a id="navHomeButton" href="">Tabby</a>
+          </div>
+          <div id="navOtherSection">
+            <div class="navOtherBlock">
+              <a class="navOtherButton" href="">Logout</a>
+            </div>
+            <div class="navOtherBlock">
+              <a class="navOtherButton" href="">Add Trip</a>
+            </div>
+          </div>
+        </header>
+  
+        <div class="generalContent">
+          <div class="generalContentHeading">
+            <p>My Trip</p>
+            <a id="seeMoreButton">See More</a>
+          </div>
+          <div class="generalContentBlock">
+            <button id="tripBlock">
+              <img id="tripImage" src="https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2014/08/fireworks_0-1024x640.jpg" alt="W3Schools.com">
+              <div class="tripImageShading"></div>
+              <div class="tripContent">
+                <div class="tripDetailBlock">
+                  <p id="tripName">TOKYO-SEOUL</p>
+                  <p id="tripUserName">Stevan Johnson</p>
+                </div>
+              </div>
+            </button>
+
+            <button id="tripBlock">
+                <img id="tripImage" src="https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2014/08/fireworks_0-1024x640.jpg" alt="W3Schools.com">
+                <div class="tripImageShading"></div>
+                <div class="tripContent">
+                  <div class="tripDetailBlock">
+                    <p id="tripName">TOKYO-SEOUL</p>
+                    <p id="tripUserName">Stevan Johnson</p>
+                  </div>
+                </div>
+              </button>
+
+              <button id="tripBlock">
+                <img id="tripImage" src="https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2014/08/fireworks_0-1024x640.jpg" alt="W3Schools.com">
+                <div class="tripImageShading"></div>
+                <div class="tripContent">
+                  <div class="tripDetailBlock">
+                    <p id="tripName">TOKYO-SEOUL</p>
+                    <p id="tripUserName">Stevan Johnson</p>
+                  </div>
+                </div>
+              </button>
+          </div>
+        </div>
+      </main>
 </body>
 </html>
+
