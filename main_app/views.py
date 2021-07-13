@@ -8,7 +8,7 @@ def home(request):
   return render(request, 'home.html')
 
 def trips_create(request):
-  return render(request, 'main_app/trip_form.html')
+  return render(request, 'trips/create.html')
 
 def trips_delete(request):
-  return render(request, 'main_app/trip_confirm_delete.html')
+  return render(request, 'trips/confirm_delete.html')
