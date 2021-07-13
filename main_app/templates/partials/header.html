@@ -1,0 +1,32 @@
+{% load static %}
+<header id="homeHeader">
+  <div id="navHomeSection">
+    <a id="navHomeButton" href="/">Tabby</a>
+  </div>
+  <div id="navOtherSection">
+    <div class="navOtherBlock">
+      <a class="navOtherButton" href="">
+        <p class="navOtherButtonText">Logout</p>
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/exitIcon.svg' %}"
+            alt="logout Icon"
+          />
+        </div>
+      </a>
+    </div>
+    <div class="navOtherBlock">
+      <a class="navOtherButton" href="{% url 'trips_create' %}">
+        <p class="navOtherButtonText">Add Trip</p>
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/Group.svg' %}"
+            alt="Add Icon"
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+</header>

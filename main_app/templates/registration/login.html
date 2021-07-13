@@ -1,7 +1,10 @@
-<h1>Login</h1>
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
-</form>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main>
+  <h1>Login</h1>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" class="btn" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+</main>
+{% endblock content %}
