@@ -7,3 +7,5 @@ from django.http import HttpResponse
 def home(request):
   return render(request, 'home.html')
 
+def trips_create(request):
+  return render(request, 'main_app/trip_form.html')
