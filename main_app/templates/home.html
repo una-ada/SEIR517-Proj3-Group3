@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabby</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header id="homeHeader">
+          <div id="navHomeSection">
+            <a id="navHomeButton" href="/">Tabby</a>
+          </div>
+          <div id="navOtherSection">
+            <div class="navOtherBlock">
+              <a class="navOtherButton" href="">
+                <p class="navOtherButtonText">Logout</p>
+                <div class="navIcon">
+                    <img id="navIconImage" src="{% static '/css/main_app/exitIcon.svg' %}" alt="logout Icon">
+                </div>
+              </a>
+              
+            </div>
+            <div class="navOtherBlock">
+              <a class="navOtherButton" href="{% url 'trips_create' %}">
+                <p class="navOtherButtonText">Add Trip</p>
+                <div class="navIcon">
+                    <img id="navIconImage" src="{% static '/css/main_app/Group.svg' %}" alt="Add Icon">
+                </div>
+              </a>
+            </div>
+          </div>
+        </header>
+  
+        <div class="generalContent">
+          <div class="generalContentHeading">
+            <p>My Trip</p>
+            <a id="seeMoreButton">See More</a>
+          </div>
+          <div class="generalContentBlock">
+            {% for trip in trips %}
+                <a id="tripBlock" href="/trips/{{ trip.id }}">
+                    <img id="tripImage" src="{% static '/css/main_app/tokyoFireworks.jpeg' %}">
+                    <div class="tripImageShading"></div>
+                    <div class="tripContent">
+                        <div class="tripDetailBlock">
+                        <p id="tripName">{{ trip.title }}</p>
+                        <p id="tripUserName">Stevan Johnson</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="generalContent">
+            <div class="generalContentHeading">
+              <p>Discover Other Trips</p>
+              <a id="seeMoreButton">See More</a>
+            </div>
+            <div class="generalContentBlock">
+              {% for trip in trips %}
+                  <a id="tripBlock" href="/trips/{{ trip.id }}">
+                    <img id="tripImage" src="{% static '/css/main_app/tokyoFireworks.jpeg' %}">
+                      <div class="tripImageShading"></div>
+                      <div class="tripContent">
+                          <div class="tripDetailBlock">
+                          <p id="tripName">{{ trip.title }}</p>
+                          <p id="tripUserName">Stevan Johnson</p>
+                          </div>
+                      </div>
+                  </a>
+              {% endfor %}
+            </div>
+        </div>
+      </main>
+</body>
+</html>
+

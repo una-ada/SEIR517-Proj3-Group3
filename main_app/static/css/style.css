@@ -1,159 +1,393 @@
 body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Rubik', sans-serif;
+  flex-wrap: wrap;
+}
+
+main {
+  display: flex;
+  height: auto;
+  width: 76%;
+  margin: 60px 0 60px 0;
+  flex-direction: column;
+}
+
+#homeHeader {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 70px 0;
+}
+
+#navHomeSection {
+  height: 100%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+#navHomeButton {
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+}
+
+#navOtherSection {
+  height: 100%;
+  width: 300px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navOtherBlock {
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 0 20px;
+}
+
+.navOtherButton {
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.navOtherButtonText {
+    margin: 0 8px 0 0;
+}
+
+.navIcon {
+    background: black;
+    height: 35px;
+    width: 35px;
+    border-radius: 300px;
     display: flex;
     justify-content: center;
-    font-family: 'Rubik', sans-serif;
-  }
-  
-  main {
-    background: blue;
-    display: flex;
-    height: auto;
-    width: 70%;
-    margin: 60px 0 0 0;
-    flex-direction: column;
-  }
-  
-  header {
-    background: violet;
-    height: 80px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 0 70px 0;
-  }
-  
-  #navHomeSection {
-    background: orange;
-    height: 100%;
-    width: 200px;
-    display: flex;
     align-items: center;
-  }
-  
-  #navHomeButton {
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: 800;
-    color: black;
-  }
-  
-  #navOtherSection {
-    background: yellowgreen;
-    height: 100%;
-    width: 300px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .navOtherBlock {
-    background: yellow;
-    height: 100%;
-    width: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .navOtherButton {
-    font-size: 20px;
-    font-weight: 300;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .generalContent {
-    background: palegreen;
-    height: auto;
-    width: 100%;
-  }
-  
-  .generalContentHeading {
-    background: olive;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  
-  p {
-    margin: 0;
-  }
-  
-  #seeMoreButton {
-    background: pink;
-  }
-  
-  .generalContentBlock {
-    background: rebeccapurple;
-    height: 400px;
-    width: 100%;
-    display: flex;
-  }
-  
-  #tripBlock {
-    background: lightcoral;
-    height: 200px;
-    width: 300px;
-    border-radius: 12px;
-    border: none;
-    position: relative;
-    padding: 0;
-    display: flex;
-    margin: 0 10px 10px 0;
-  }
-  
-  #tripImage {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    margin: 0;
-    border-radius: 12px;
-  }
-  
-  .tripImageShading {
-    background: black;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    border-radius: 12px;
-    opacity: 10%;
-    position: absolute;
-  }
-  
-  .tripContent {
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    border-radius: 12px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  
-  #tripName {
-    color: white;
-    z-index: 1;
-    font-family: 'Rubik', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    text-align: start;
-  }
+}
 
-  #tripUserName {
+#navIconImage {
+    height: 50%;
+    width: auto;
     color: white;
-    font-family: 'Rubik', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    text-align: start;
-  }
-  
-  .tripDetailBlock {
-    margin: 0 0 20px 30px;
-  }
-  
-  
-  
-  
-  
+}
+
+.generalContent {
+  height: auto;
+  width: 100%;
+  margin: 0 0 50px 0;
+}
+
+.generalContentHeading {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#seeMoreButton {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+}
+
+.generalContentBlock {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tripBlock {
+  height: 250px;
+  width: 350px;
+  border-radius: 12px;
+  border: none;
+  position: relative;
+  padding: 0;
+  display: flex;
+  margin: 0 10px 10px 0;
+  color: white;
+}
+
+#tripImage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  border-radius: 12px;
+}
+
+.tripImageShading {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border-radius: 12px;
+  opacity: 10%;
+  position: absolute;
+}
+
+.tripContent {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#tripName {
+  z-index: 1;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: start;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+#tripUserName {
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: start;
+}
+
+.tripDetailBlock {
+  margin: 0 0 20px 30px;
+}
+
+
+
+
+
+
+
+
+#tripImageDetail {
+  height: 90vh;
+  width: 100vw;
+  margin: 0 0 50px 0;
+}
+
+#headerSectionDetail {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: black;
+  margin: 0 0 50px 0;
+}
+
+#headerDetail {
+  height: 100%;
+  width: auto;
+  line-height: 1;
+}
+
+#tripTitleDetail {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  padding: 0;
+  line-height: 1;
+}
+
+#tripUserNameDetail {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+#headerCRUDSection {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.CRUDButton {
+  margin: 0 0 0 10px;
+}
+
+.sectionBreaker {
+  background: black;
+  height: 1px;
+  width: 100%;
+  opacity: 20%;
+  margin: 0 0 100px 0;
+}
+
+.journalHeader {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 30px 0;
+}
+
+.diaryEntryHeading {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+
+#navDetail {
+  background: transparent;
+  position: absolute;
+  height: 50px;
+  width: 80%;
+  margin: 100px 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: none;
+}
+
+#diaryContentBlock {
+  margin: 0 0 70px 0;
+}
+
+.diaryBlock {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 30px 50px;
+  border: 1px solid black;
+  border-radius: 12px;
+  margin: 0 0 10px 0;
+}
+
+.diaryBlockText {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+
+
+
+
+
+
+
+
+
+.mainform {
+  display: flex;
+  height: auto;
+  width: 40%;
+  margin: 60px 0 60px 0;
+  flex-direction: column;
+}
+
+#formNav {
+  background: transparent;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: none;
+  margin: 0 0 40px 0;
+}
+
+.formNavIcon {
+  background: black;
+  height: 50px;
+  width: 50px;
+  border-radius: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#formNavIconImage {
+  height: 30%;
+  width: auto;
+  color: white;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLineBreaker {
+  background: black;
+  height: 1px;
+  width: 100%;
+  opacity: 20%;
+  margin: 40px 0 50px 0;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 300;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  margin: 0 0 5px 0;
+}
+
+::placeholder {
+  font-size: 20px;
+  font-weight: 300;
+  color: black;
+  opacity: 20%;
+  font-family: 'Rubik', sans-serif;
+}
+
+.formInput {
+  margin: 0;
+  color: black;
+  height: 20px;
+  font-family: 'Rubik', sans-serif;
+  border: none;
+  margin: 0 0 10px 0;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.inputLine {
+  background: black;
+  height: 1px;
+  width: 100%;
+  opacity: 20%;
+  margin: 0 0 20px 0;
+}
+
+.submitButton {
+  background: black;
+  height: 70px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 300;
+  margin: 30px 0 0 0;
+}
+
