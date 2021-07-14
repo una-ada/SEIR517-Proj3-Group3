@@ -55,6 +55,7 @@ def add_note(request, trip_id):
   if form.is_valid():
     new_note = form.save(commit=False)
     new_note.trip_id = trip_id
+    new_note.user = request.user
     new_note.save()
   return redirect('detail', trip_id=trip_id)
 
