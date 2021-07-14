@@ -34,6 +34,6 @@ class Diary_Entry(models.Model):
         ordering = ['-date']
 
 class Note(models.Model):
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     content = TextField()
