@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 #from django.views.generic import ListView, DetailView
@@ -50,6 +51,7 @@ def add_diary_entry(request, trip_id):
     new_diary_entry.save()
   return redirect('detail', trip_id=trip_id)
 
+@login_required
 def add_note(request, trip_id):
   form = NoteForm(request.POST)
   if form.is_valid():
