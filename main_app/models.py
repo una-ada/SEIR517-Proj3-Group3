@@ -17,6 +17,7 @@ class Trip(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'trip_id': self.id})
 
+
 class Photo(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     image = CharField(max_length=200)
@@ -26,10 +27,13 @@ class Diary_Entry(models.Model):
     date = models.DateField()
     content = models.TextField()
 
-    def __str__(self):
-        return f"{self.get_content_display()} on {self.date}"
+    #def __str__(self):
+        #return f"{self.get_content_display()} on {self.date}"
 
-class Notes(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    class Meta:
+        ordering = ['-date']
+
+class Note(models.Model):
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     content = TextField()

@@ -57,42 +57,52 @@
       </div>
     </a>
   </div>
+
+  <form action="{% url 'add_diary_entry' trip.id %}" method="post" class="formBlock">
+    {% csrf_token %}
+    {{ diary_entry_form.as_p }}
+    <input type="submit" class="submitButton" value="Add Diary Entry"/>
+  </form>
+
+
   <div id="diaryContentBlock">
+    {% for diary_entry in trip.diary_entry_set.all %}
     <div class="diaryBlock">
-      <p class="diaryBlockText">24th May, 2019</p>
-      <p class="diaryBlockText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <p class="diaryBlockText">{{ diary_entry.date }}</p>
+      <p class="diaryBlockText">{{ diary_entry.content }}</p>
     </div>
-    <div class="diaryBlock">
-      <p class="diaryBlockText">24th May, 2019</p>
-      <p class="diaryBlockText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
+    {% endfor %}
   </div>
 
   <div class="sectionBreaker"></div>
   <div class="journalHeader">
     <h3 class="diaryEntryHeading">Other user comments</h3>
   </div>
+
+  <form action="{% url 'add_note' trip.id %}" method="post" class="formBlock">
+    {% csrf_token %}
+    {{ note_form.as_p }}
+    <input type="submit" class="submitButton" value="Add Note"/>
+  </form>
+  
   <div id="diaryContentBlock">
+    {% for note in trip.note_set.all %}
     <div class="diaryBlock">
-      <p class="diaryBlockText">24th May, 2019</p>
-      <p class="diaryBlockText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <p class="diaryBlockText">Username</p>
+      <p class="diaryBlockText">{{ note.content }}</p>
     </div>
-    <div class="diaryBlock">
-      <p class="diaryBlockText">24th May, 2019</p>
-      <p class="diaryBlockText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
+    {% endfor %}
   </div>
 </main>
+
+<script>
+  const dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+</script>
+
 {% endblock content %}
