@@ -18,7 +18,7 @@
   {% endif %}
   <p id="tripUserNameDetail">Add the location and the photos for your trip.</p>
   <div class="formLineBreaker"></div>
-  <form action="" method="post" class="formBlock">
+  <form action="{% url 'trips_create' trip.id %}" method="post" class="formBlock">
     {% csrf_token %}
     <label for="id_title">Title:</label>
     <input
