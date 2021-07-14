@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 #from django.views.generic import ListView, DetailView
 
-class TripCreate(CreateView):
+class TripCreate(LoginRequiredMixin, CreateView):
     model = Trip
     fields = ['title', 'from_location', 'to_location']
   
