@@ -3,33 +3,36 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 #from django.views.generic import ListView, DetailView
 
 class TripCreate(LoginRequiredMixin, CreateView):
-    model = Trip
-    fields = ['title', 'from_location', 'to_location']
+  model = Trip
+  # This can't be '__all__', probably because the form is missing the user
+  # field which needs to be added by the validation method!
+  fields = ['title', 'from_location', 'to_location']
   
-    def form_valid(self, form):
-      form.instance.user = self.request.user
-      return super().form_valid(form)
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
-class TripUpdate(UpdateView):
-    model = Trip
-    fields = '__all__'
+class TripUpdate(LoginRequiredMixin, UpdateView):
+  model = Trip
+  fields = '__all__'
 
-class TripDelete(DeleteView):
-    model = Trip
-    success_url = '/'
 
+class TripDelete(LoginRequiredMixin, DeleteView):
+  model = Trip
+  success_url = '/'
 
 # Define the home view
 # Create your views here.
 
 def trips_index(request):
   trips = Trip.objects.all()
-  return render(request, 'home.html', {'trips': trips })
+  return render(request, 'home.html', {'trips': trips})
 
 def trips_detail(request,trip_id):
     trip = Trip.objects.get(id=trip_id)

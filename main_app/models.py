@@ -9,10 +9,10 @@ class Trip(models.Model):
     title = models.CharField(max_length=100)
     from_location = models.CharField(max_length=100)
     to_location = models.CharField(max_length=100)
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title   
+        return self.title
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'trip_id': self.id})
