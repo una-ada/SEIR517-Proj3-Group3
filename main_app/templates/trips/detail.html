@@ -1,97 +1,98 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabby</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <img id="tripImageDetail" src="{% static '/css/main_app/tokyoFireworks.jpeg' %}">
-    <nav id="navDetail">
-        <nav id="formNav">
-            <a href="/" class="CRUDButton">
-                <div class="formNavIcon">
-                    <img id="formNavIconImage" src="{% static '/css/main_app/closeIcon.svg' %}" alt="Close Icon">
-                </div>
-            </a>
-        </nav>
-    </nav>
-    <main>
-        <header id="headerSectionDetail">
-            <div id="headerDetail">
-                <h1 id="tripTitleDetail">{{ trip.title }}</h1>
-                <p id="tripUserNameDetail">Stevan Johnson</p>
-            </div>
-            <div id="headerCRUDSection">
-                <a href="{% url 'trips_update' trip.id %}" class="CRUDButton">
-                <div class="navIcon">
-                    <img id="navIconImage" src="{% static '/css/main_app/edit.svg' %}" alt="Add Icon">
-                </div>
-                </a>
-                <a href="{% url 'trips_delete' trip.id %}" class="CRUDButton">
-                    <div class="navIcon">
-                        <img id="navIconImage" src="{% static '/css/main_app/bin.svg' %}" alt="Add Icon">
-                    </div>
-                </a>
-            </div>
-        </header>
-        <div class="sectionBreaker"></div>
-        <div class="journalHeader">
-            <h3 class="diaryEntryHeading">User Diary Entries</h3>
-            <a class="navOtherButton" href="">
-                <p class="navOtherButtonText">Manage Trip Diary</p>
-                <div class="navIcon">
-                    <img id="navIconImage" src="{% static '/css/main_app/edit.svg' %}" alt="Add Icon">
-                </div>
-            </a>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<img
+  id="tripImageDetail"
+  src="{% static '/css/main_app/tokyoFireworks.jpeg' %}"
+/>
+<nav id="navDetail">
+  <nav id="formNav">
+    <a href="/" class="CRUDButton">
+      <div class="formNavIcon">
+        <img
+          id="formNavIconImage"
+          src="{% static '/css/main_app/closeIcon.svg' %}"
+          alt="Close Icon"
+        />
+      </div>
+    </a>
+  </nav>
+</nav>
+<main>
+  <header id="headerSectionDetail">
+    <div id="headerDetail">
+      <h1 id="tripTitleDetail">{{ trip.title }}</h1>
+      <p id="tripUserNameDetail">Stevan Johnson</p>
+    </div>
+    <div id="headerCRUDSection">
+      <a href="{% url 'trips_update' trip.id %}" class="CRUDButton">
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/edit.svg' %}"
+            alt="Add Icon"
+          />
         </div>
-        <div id="diaryContentBlock">
-            <div class="diaryBlock">
-                <p class="diaryBlockText">24th May, 2019</p>
-                <p class="diaryBlockText">Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. 
-                </p>
-            </div>
-            <div class="diaryBlock">
-                <p class="diaryBlockText">24th May, 2019</p>
-                <p class="diaryBlockText">Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. 
-                </p>
-            </div>
+      </a>
+      <a href="{% url 'trips_delete' trip.id %}" class="CRUDButton">
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/bin.svg' %}"
+            alt="Add Icon"
+          />
         </div>
+      </a>
+    </div>
+  </header>
+  <div class="sectionBreaker"></div>
+  <div class="journalHeader">
+    <h3 class="diaryEntryHeading">User Diary Entries</h3>
+    <a class="navOtherButton" href="">
+      <p class="navOtherButtonText">Manage Trip Diary</p>
+      <div class="navIcon">
+        <img
+          id="navIconImage"
+          src="{% static '/css/main_app/edit.svg' %}"
+          alt="Add Icon"
+        />
+      </div>
+    </a>
+  </div>
+  <div id="diaryContentBlock">
+    <div class="diaryBlock">
+      <p class="diaryBlockText">24th May, 2019</p>
+      <p class="diaryBlockText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+    <div class="diaryBlock">
+      <p class="diaryBlockText">24th May, 2019</p>
+      <p class="diaryBlockText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </div>
 
-        <div class="sectionBreaker"></div>
-        <div class="journalHeader">
-            <h3 class="diaryEntryHeading">Other user comments</h3>
-        </div>
-        <div id="diaryContentBlock">
-            <div class="diaryBlock">
-                <p class="diaryBlockText">24th May, 2019</p>
-                <p class="diaryBlockText">Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. 
-                </p>
-            </div>
-            <div class="diaryBlock">
-                <p class="diaryBlockText">24th May, 2019</p>
-                <p class="diaryBlockText">Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. 
-                </p>
-            </div>
-        </div>
-
-
-    </main>
-</body>
-</html>
-
+  <div class="sectionBreaker"></div>
+  <div class="journalHeader">
+    <h3 class="diaryEntryHeading">Other user comments</h3>
+  </div>
+  <div id="diaryContentBlock">
+    <div class="diaryBlock">
+      <p class="diaryBlockText">24th May, 2019</p>
+      <p class="diaryBlockText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+    <div class="diaryBlock">
+      <p class="diaryBlockText">24th May, 2019</p>
+      <p class="diaryBlockText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </div>
+</main>
+{% endblock content %}
