@@ -47,6 +47,7 @@ def trips_detail(request, trip_id):
       }
   )
 
+@login_required
 def add_diary_entry(request, trip_id):
   form = Diary_EntryForm(request.POST)
   if form.is_valid():
