@@ -4,11 +4,16 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 #from django.views.generic import ListView, DetailView
 
 class TripCreate(CreateView):
     model = Trip
-    fields = '__all__'
+    fields = ['title', 'from_location', 'to_location']
+  
+    def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
 
 class TripUpdate(UpdateView):
     model = Trip
