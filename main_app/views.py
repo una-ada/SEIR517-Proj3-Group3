@@ -40,24 +40,16 @@ def trips_detail(request,trip_id):
 
 
 def add_diary_entry(request, trip_id):
-  # create a ModelForm instance using the data in request.POST
   form = Diary_EntryForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form to the db until it
-    # has the cat_id assigned
     new_diary_entry = form.save(commit=False)
     new_diary_entry.trip_id = trip_id
     new_diary_entry.save()
   return redirect('detail', trip_id=trip_id)
 
 def add_note(request, trip_id):
-  # create a ModelForm instance using the data in request.POST
   form = NoteForm(request.POST)
-  # validate the form
   if form.is_valid():
-    # don't save the form to the db until it
-    # has the cat_id assigned
     new_note = form.save(commit=False)
     new_note.trip_id = trip_id
     new_note.save()

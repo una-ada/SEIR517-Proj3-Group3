@@ -68,7 +68,31 @@
   <div id="diaryContentBlock">
     {% for diary_entry in trip.diary_entry_set.all %}
     <div class="diaryBlock">
-      <p class="diaryBlockText">{{ diary_entry.date }}</p>
+      <div id="headerSectionDetail">
+        <div id="headerDetail">
+          <p class="diaryBlockText">{{ diary_entry.date }}</p>
+        </div>
+        <div id="headerCRUDSection">
+          <a href="" class="CRUDButton">
+            <div class="navIcon">
+              <img
+                id="navIconImage"
+                src="{% static '/css/main_app/edit.svg' %}"
+                alt="Add Icon"
+              />
+            </div>
+          </a>
+          <a href="" class="CRUDButton">
+            <div class="navIcon">
+              <img
+                id="navIconImage"
+                src="{% static '/css/main_app/bin.svg' %}"
+                alt="Add Icon"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
       <p class="diaryBlockText">{{ diary_entry.content }}</p>
     </div>
     {% endfor %}
@@ -88,7 +112,31 @@
   <div id="diaryContentBlock">
     {% for note in trip.note_set.all %}
     <div class="diaryBlock">
-      <p class="diaryBlockText">Username</p>
+      <div id="headerSectionDetail">
+        <div id="headerDetail">
+          <p class="diaryBlockText">Username</p>
+        </div>
+        <div id="headerCRUDSection">
+          <a href="" class="CRUDButton">
+            <div class="navIcon">
+              <img
+                id="navIconImage"
+                src="{% static '/css/main_app/edit.svg' %}"
+                alt="Add Icon"
+              />
+            </div>
+          </a>
+          <a href="" class="CRUDButton">
+            <div class="navIcon">
+              <img
+                id="navIconImage"
+                src="{% static '/css/main_app/bin.svg' %}"
+                alt="Add Icon"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
       <p class="diaryBlockText">{{ note.content }}</p>
     </div>
     {% endfor %}
