@@ -37,7 +37,7 @@ main {
 
 #navOtherSection {
   height: 100%;
-  width: 300px;
+  width: 500px;
   display: flex;
   justify-content: flex-end;
 }
