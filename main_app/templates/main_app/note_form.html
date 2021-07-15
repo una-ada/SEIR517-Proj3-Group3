@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <main class="mainform">
   <nav id="formNav">
-    <a href="/" class="CRUDButton">
+    <a href="{% url 'detail' note.trip.id %}" class="CRUDButton">
       <div class="formNavIcon">
         <img
           id="formNavIconImage"
@@ -12,15 +12,26 @@
     </a>
   </nav>
   {% if object %}
-  <h1 id="tripTitleDetail">Update Your Note</h1>
+  <h1 id="tripTitleDetail">Update Your Comment</h1>
   {% else %}
-  <h1 id="tripTitleDetail">Add Your Note</h1>
+  <h1 id="tripTitleDetail">Add Your Comment</h1>
   {% endif %}
   <div class="formLineBreaker"></div>
   <form action="" method="post" class="formBlock">
     {% csrf_token %}
-    {{ note_form.as_p }}
-    <input type="submit" class="submitButton" value="Edit Note"/>
+    <!-- {{ note_form.as_p }} -->
+    <p>
+      <label for="id_content" class="dateLabel">Your Comment:</label>
+      <textarea name="content" 
+       cols="40" 
+       rows="10" 
+       required="" 
+       id="id_content" 
+       class="textAreaContent"
+       placeholder="e.g. Your thoughts ..."
+      ></textarea>
+    </p>
+    <input type="submit" class="submitButton" value="Update Note"/>
   </form>
 </main>
 {% endblock content %}
