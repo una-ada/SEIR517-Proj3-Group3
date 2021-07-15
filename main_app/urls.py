@@ -32,6 +32,11 @@ urlpatterns = [
         name='diary_delete'
     ),
     path(
+        'note/<int:pk>/update/',
+        views.NoteUpdate.as_view(),
+        name='note_update'
+    ),
+    path(
         'note/<int:pk>/delete/',
         views.NoteDelete.as_view(),
         name='note_delete'
