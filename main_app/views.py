@@ -90,7 +90,7 @@ class DiaryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
   
   def test_func(self):
     return self.get_object().trip.user.id is self.request.user.id
-
+  
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
 
@@ -99,7 +99,18 @@ class DiaryDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
   
   def test_func(self):
     return self.get_object().trip.user.id is self.request.user.id
+  
+  def get_success_url(self):
+    return self.object.trip.get_absolute_url()
 
+class NoteUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+  model = Note
+  fields = ['content']
+  extra_context = {'note_form': NoteForm}
+  
+  def test_func(self):
+    return self.get_object().user.id is self.request.user.id
+  
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
 
@@ -108,6 +119,6 @@ class NoteDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
   
   def test_func(self):
     return self.get_object().user.id is self.request.user.id
-
+  
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
