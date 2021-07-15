@@ -118,16 +118,16 @@
           <p class="diaryBlockText">Username</p>
         </div>
         <div id="headerCRUDSection">
-          <a href="" class="CRUDButton">
+          <a href="{% url 'note_update' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
                 src="{% static '/css/main_app/edit.svg' %}"
-                alt="Add Icon"
+                alt="Edit Note"
               />
             </div>
           </a>
-          <a href="{%url 'note_delete' note.pk%}" class="CRUDButton">
+          <a href="{% url 'note_delete' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
