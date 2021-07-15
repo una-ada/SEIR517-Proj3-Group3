@@ -73,21 +73,21 @@
           <p class="diaryBlockText">{{ diary_entry.date }}</p>
         </div>
         <div id="headerCRUDSection">
-          <a href="" class="CRUDButton">
+          <a href="{%url 'diary_update' diary_entry.pk%}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
                 src="{% static '/css/main_app/edit.svg' %}"
-                alt="Add Icon"
+                alt="Edit"
               />
             </div>
           </a>
-          <a href="" class="CRUDButton">
+          <a href="{%url 'diary_delete' diary_entry.pk%}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
                 src="{% static '/css/main_app/bin.svg' %}"
-                alt="Add Icon"
+                alt="Delete"
               />
             </div>
           </a>
