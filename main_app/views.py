@@ -1,8 +1,7 @@
-from django.http.response import HttpResponseForbidden, HttpResponseNotAllowed
+from django.http.response import HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.urls.base import reverse
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
 from django.contrib.auth.mixins import LoginRequiredMixin
