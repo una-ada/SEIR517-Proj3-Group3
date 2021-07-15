@@ -1,10 +1,59 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<main>
-  <h1>Login</h1>
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="submit" class="btn" value="login" />
+<main class="mainform">
+  <nav id="formNav">
+    <a href="/" class="CRUDButton">
+      <div class="formNavIcon">
+        <img
+          id="formNavIconImage"
+          src="{% static '/css/main_app/closeIcon.svg' %}"
+          alt="Close Icon"
+        />
+      </div>
+    </a>
+  </nav>
+  <h1 id="tripTitleDetail">Login</h1>
+  <div class="formLineBreaker"></div>
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <!-- {{ form.as_p }} -->
+    <p>
+      <label for="id_username" class="dateLabel">Username:</label>
+      <input 
+       type="text" 
+       name="username" 
+       autofocus="" 
+       autocapitalize="none" 
+       autocomplete="username" 
+       maxlength="150" 
+       required="" 
+       id="id_username"
+       class="textAreaContent"
+       placeholder="e.g. John"
+       >
+    </p>
+    
+    <p>
+      <label for="id_password" class="dateLabel">Password:</label>
+      <input 
+       type="password" 
+       name="password" 
+       autocomplete="current-password" 
+       required="" 
+       id="id_password"
+       class="textAreaContent"
+       placeholder="Minimum 8 characters"
+       >
+    </p>
+    <input type="submit" class="submitButton" value="Login"/>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 </main>
 {% endblock content %}
+
+
+
+
+
+
+
+
