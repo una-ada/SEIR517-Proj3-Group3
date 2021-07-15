@@ -115,7 +115,7 @@
     <div class="diaryBlock">
       <div id="headerSectionDetail">
         <div id="headerDetail">
-          <p class="diaryBlockText">Username</p>
+          <p class="diaryBlockText">{{ user.username }}</p>
         </div>
         <div id="headerCRUDSection">
           <a href="{% url 'note_update' note.pk %}" class="CRUDButton">
