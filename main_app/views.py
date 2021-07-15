@@ -2,6 +2,7 @@ from django.http.response import HttpResponseForbidden, HttpResponseNotAllowed
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.urls.base import reverse
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -55,7 +56,8 @@ def add_diary_entry(request, trip_id):
       new_diary_entry = form.save(commit=False)
       new_diary_entry.trip_id = trip_id
       new_diary_entry.save()
-    return HttpResponseForbidden('403: You do not own this trip!')
+    else:
+      return HttpResponseForbidden('403: You do not own this trip!')
   return redirect('detail', trip_id=trip_id)
 
 @login_required
@@ -81,3 +83,17 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+class DiaryUpdate(UpdateView):
+  model = Diary_Entry
+  fields = ['date','content']
+  extra_context = {'diary_entry_form': Diary_EntryForm()}
+  
+  def get_success_url(self):
+    return self.object.trip.get_absolute_url()
+
+class DiaryDelete(DeleteView):
+  model = Diary_Entry
+  
+  def get_success_url(self):
+    return self.object.trip.get_absolute_url()
