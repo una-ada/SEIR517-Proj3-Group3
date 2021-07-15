@@ -60,7 +60,7 @@
       </div>
     </a>
   </div>
-
+  {% if user.id is trip.user_id %}
   <form
     action="{% url 'add_diary_entry' trip.id %}"
     method="post"
@@ -105,7 +105,8 @@
 
     <input type="submit" class="noteSubmitButton" value="Add Diary Entry" />
   </form>
-
+  {% else %}
+  {% endif %}
 
   <div id="diaryContentBlock">
     {% for diary_entry in trip.diary_entry_set.all %}
@@ -114,6 +115,7 @@
         <div id="headerDetail">
           <p class="diaryBlockText">{{ diary_entry.date }}</p>
         </div>
+        {% if user.id is trip.user_id %}
         <div id="headerCRUDSection">
           <a href="{%url 'diary_update' diary_entry.pk%}" class="CRUDButton">
             <div class="navIcon">
@@ -134,6 +136,8 @@
             </div>
           </a>
         </div>
+        {% else %}
+        {% endif %}
       </div>
       <p class="diaryBlockText">{{ diary_entry.content }}</p>
     </div>
