@@ -409,13 +409,6 @@ label {
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
 .dateLabel {
   font-size: 20px;
   color: black;
@@ -459,14 +452,6 @@ label {
   color: black;
   opacity: 20%;
 }
-
-
-
-
-
-
-
-
 
 .confirmCancelPage {
   min-height: 100vh;
