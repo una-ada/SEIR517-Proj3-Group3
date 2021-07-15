@@ -83,11 +83,14 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class DiaryUpdate(UpdateView):
+class DiaryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
   model = Diary_Entry
   fields = ['date', 'content']
   extra_context = {'diary_entry_form': Diary_EntryForm()}
   
+  def test_func(self):
+    return self.get_object().trip.user.id is self.request.user.id
+
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
 
