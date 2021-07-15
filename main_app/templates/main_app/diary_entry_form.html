@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <main class="mainform">
   <nav id="formNav">
-    <a href="/" class="CRUDButton">
+    <a href="{% url 'detail' diary_entry.trip.id %}" class="CRUDButton">
       <div class="formNavIcon">
         <img
           id="formNavIconImage"
@@ -19,8 +19,34 @@
   <div class="formLineBreaker"></div>
   <form action="" method="post" class="formBlock">
     {% csrf_token %}
-    {{ diary_entry_form.as_p }}
+    <!-- {{ diary_entry_form.as_p }} -->
+    <p>
+      <label for="id_date" class="dateLabel">Date:</label>
+      <input type="text" name="date" required="" id="id_date">
+    </p>
+    <p>
+      <label for="id_content" class="dateLabel">Content:</label>
+      <textarea 
+       name="content" 
+       cols="40" 
+       rows="10" 
+       required="" 
+       id="id_content"
+       class="textAreaContent"
+       placeholder="e.g. Your thoughts ..."
+       ></textarea>
+    </p>
     <input type="submit" class="submitButton" value="Add Diary Entry"/>
   </form>
 </main>
+
+<script>
+  const dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+</script>
 {% endblock content %}
