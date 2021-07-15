@@ -31,5 +31,10 @@ urlpatterns = [
         views.DiaryDelete.as_view(),
         name='diary_delete'
     ),
+    path(
+        'note/<int:pk>/delete/',
+        views.NoteDelete.as_view(),
+        name='note_delete'
+    ),
     path('accounts/signup/', views.signup, name='signup'),
 ]
