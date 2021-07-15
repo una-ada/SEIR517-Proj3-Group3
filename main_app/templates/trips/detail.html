@@ -58,12 +58,14 @@
     </a>
   </div>
 
-  <form action="{% url 'add_diary_entry' trip.id %}" method="post" class="formBlock">
-    {% csrf_token %}
-    {{ diary_entry_form.as_p }}
-    <input type="submit" class="submitButton" value="Add Diary Entry"/>
+  <form
+    action="{% url 'add_diary_entry' trip.id %}"
+    method="post"
+    class="formBlock"
+  >
+    {% csrf_token %} {{ diary_entry_form.as_p }}
+    <input type="submit" class="submitButton" value="Add Diary Entry" />
   </form>
-
 
   <div id="diaryContentBlock">
     {% for diary_entry in trip.diary_entry_set.all %}
@@ -104,11 +106,10 @@
   </div>
 
   <form action="{% url 'add_note' trip.id %}" method="post" class="formBlock">
-    {% csrf_token %}
-    {{ note_form.as_p }}
-    <input type="submit" class="submitButton" value="Add Note"/>
+    {% csrf_token %} {{ note_form.as_p }}
+    <input type="submit" class="submitButton" value="Add Note" />
   </form>
-  
+
   <div id="diaryContentBlock">
     {% for note in trip.note_set.all %}
     <div class="diaryBlock">
@@ -117,21 +118,21 @@
           <p class="diaryBlockText">Username</p>
         </div>
         <div id="headerCRUDSection">
-          <a href="" class="CRUDButton">
+          <a href="{% url 'note_update' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
                 src="{% static '/css/main_app/edit.svg' %}"
-                alt="Add Icon"
+                alt="Edit Note"
               />
             </div>
           </a>
-          <a href="" class="CRUDButton">
+          <a href="{% url 'note_delete' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
                 id="navIconImage"
                 src="{% static '/css/main_app/bin.svg' %}"
-                alt="Add Icon"
+                alt="Delete Note"
               />
             </div>
           </a>
@@ -149,7 +150,7 @@
     format: 'yyyy-mm-dd',
     defaultDate: new Date(),
     setDefaultDate: true,
-    autoClose: true
+    autoClose: true,
   });
 </script>
 

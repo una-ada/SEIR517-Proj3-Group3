@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main class="mainform">
+  <nav id="formNav">
+    <a href="/" class="CRUDButton">
+      <div class="formNavIcon">
+        <img
+          id="formNavIconImage"
+          src="{% static '/css/main_app/closeIcon.svg' %}"
+          alt="Close Icon"
+        />
+      </div>
+    </a>
+  </nav>
+  {% if object %}
+  <h1 id="tripTitleDetail">Update Your Note</h1>
+  {% else %}
+  <h1 id="tripTitleDetail">Add Your Note</h1>
+  {% endif %}
+  <div class="formLineBreaker"></div>
+  <form action="" method="post" class="formBlock">
+    {% csrf_token %}
+    {{ note_form.as_p }}
+    <input type="submit" class="submitButton" value="Edit Note"/>
+  </form>
+</main>
+{% endblock content %}
