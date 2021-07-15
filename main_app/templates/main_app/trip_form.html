@@ -14,7 +14,7 @@
 <body>
     <main class="mainform">
         <nav id="formNav">
-            <a href="/" class="CRUDButton">
+            <a href="{% url 'detail' trip.id %}" class="CRUDButton">
                 <div class="formNavIcon">
                     <img id="formNavIconImage" src="{% static '/css/main_app/closeIcon.svg' %}" alt="Close Icon">
                 </div>
