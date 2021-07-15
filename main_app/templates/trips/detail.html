@@ -20,7 +20,7 @@
   <header id="headerSectionDetail">
     <div id="headerDetail">
       <h1 id="tripTitleDetail">{{ trip.title }}</h1>
-      <p id="tripUserNameDetail">Stevan Johnson</p>
+      <p id="tripUserNameDetail">{{ trip.user.username }}</p>
     </div>
     <div id="headerCRUDSection">
       <a href="{% url 'trips_update' trip.id %}" class="CRUDButton">

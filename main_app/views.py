@@ -1,11 +1,10 @@
-from django.http.response import HttpResponseForbidden, HttpResponseNotAllowed
+from django.http.response import HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.urls.base import reverse
 from .models import Diary_Entry, Trip
 from .forms import Diary_EntryForm, NoteForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -57,7 +56,7 @@ def add_diary_entry(request, trip_id):
       new_diary_entry.trip_id = trip_id
       new_diary_entry.save()
     else:
-      return HttpResponseForbidden('403: You do not own this trip!')
+      return HttpResponseForbidden()
   return redirect('detail', trip_id=trip_id)
 
 @login_required
@@ -84,16 +83,22 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class DiaryUpdate(UpdateView):
+class DiaryUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
   model = Diary_Entry
-  fields = ['date','content']
+  fields = ['date', 'content']
   extra_context = {'diary_entry_form': Diary_EntryForm()}
   
+  def test_func(self):
+    return self.get_object().trip.user.id is self.request.user.id
+
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
 
-class DiaryDelete(DeleteView):
+class DiaryDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
   model = Diary_Entry
   
+  def test_func(self):
+    return self.get_object().trip.user.id is self.request.user.id
+
   def get_success_url(self):
     return self.object.trip.get_absolute_url()
