@@ -22,6 +22,7 @@
       <h1 id="tripTitleDetail">{{ trip.title }}</h1>
       <p id="tripUserNameDetail">{{ trip.user.username }}</p>
     </div>
+    {% if user.id is trip.user_id %}
     <div id="headerCRUDSection">
       <a href="{% url 'trips_update' trip.id %}" class="CRUDButton">
         <div class="navIcon">
@@ -42,6 +43,8 @@
         </div>
       </a>
     </div>
+    {% else %}
+    {% endif %}
   </header>
   <div class="sectionBreaker"></div>
   <div class="journalHeader">
@@ -166,9 +169,10 @@
     <div class="diaryBlock">
       <div id="noteSectionDetail">
         <div id="headerDetail">
-          <p class="diaryBlockText">Username</p>
+          <p class="diaryBlockText">{{ note.user }}</p>
         </div>
         <div id="headerCRUDSection">
+          {% if user.id is note.user_id %}
           <a href="{% url 'note_update' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
@@ -187,6 +191,8 @@
               />
             </div>
           </a>
+          {% else %}
+          {% endif %}
         </div>
       </div>
       <p class="diaryBlockText">{{ note.content }}</p>
