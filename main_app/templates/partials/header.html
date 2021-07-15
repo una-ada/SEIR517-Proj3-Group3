@@ -3,7 +3,6 @@
   <div id="navHomeSection">
     <a id="navHomeButton" href="/">Tabby</a>
   </div>
-  <a href="accounts/signup">Sign Up</a>
   <div id="navOtherSection">
     {% if user.is_authenticated %}
     <div class="navOtherBlock">
@@ -18,20 +17,7 @@
         </div>
       </a>
     </div>
-    {% else %}
-    <div class="navOtherBlock">
-      <a class="navOtherButton" href="{% url 'login' %}">
-        <p class="navOtherButtonText">Login</p>
-        <div class="navIcon">
-          <img
-            id="navIconImage"
-            src="{% static '/css/main_app/exitIcon.svg' %}"
-            alt="login Icon"
-          />
-        </div>
-      </a>
-    </div>
-    {% endif %}
+
     <div class="navOtherBlock">
       <a class="navOtherButton" href="{% url 'trips_create' %}">
         <p class="navOtherButtonText">Add Trip</p>
@@ -44,5 +30,34 @@
         </div>
       </a>
     </div>
+    {% else %}
+
+    <div class="navOtherBlock">
+      <a class="navOtherButton" href="{% url 'login' %}">
+        <p class="navOtherButtonText">Login</p>
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/loginIcon.svg' %}"
+            alt="login Icon"
+          />
+        </div>
+      </a>
+    </div>
+    <div class="navOtherBlock">
+      <a class="navOtherButton" href="accounts/signup">
+        <p class="navOtherButtonText">Sign Up</p>
+        <div class="navIcon">
+          <img
+            id="navIconImage"
+            src="{% static '/css/main_app/documentIcon.svg' %}"
+            alt="login Icon"
+          />
+        </div>
+      </a>
+    </div>
+
+
+    {% endif %}
   </div>
 </header>

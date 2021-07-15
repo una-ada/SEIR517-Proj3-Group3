@@ -37,7 +37,7 @@ main {
 
 #navOtherSection {
   height: 100%;
-  width: 300px;
+  width: 500px;
   display: flex;
   justify-content: flex-end;
 }
@@ -180,7 +180,13 @@ p {
 
 
 
-
+#mainDetail {
+  display: flex;
+  height: auto;
+  width: 70%;
+  margin: 60px 0 60px 0;
+  flex-direction: column;
+}
 
 #tripImageDetail {
   height: 90vh;
@@ -196,6 +202,16 @@ p {
   flex-wrap: wrap;
   color: black;
   margin: 0 0 50px 0;
+}
+
+#noteSectionDetail {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: black;
+  margin: 0;
 }
 
 #headerDetail {
@@ -222,7 +238,7 @@ p {
 
 #headerCRUDSection {
   height: 100%;
-  width: 500px;
+  width: auto;
   display: flex;
   justify-content: flex-end;
 }
@@ -258,7 +274,7 @@ p {
   background: transparent;
   position: absolute;
   height: 50px;
-  width: 80%;
+  width: 70%;
   margin: 100px 0 0 0;
   display: flex;
   justify-content: flex-end;
@@ -287,7 +303,6 @@ p {
   padding: 0;
   line-height: 1.2;
 }
-
 
 
 
@@ -369,6 +384,7 @@ label {
   margin: 0 0 10px 0;
   font-weight: 300;
   font-size: 20px;
+  outline: none
 }
 
 .inputLine {
@@ -382,6 +398,7 @@ label {
 .submitButton {
   background: black;
   height: 70px;
+  width: 100%;
   font-family: 'Rubik', sans-serif;
   color: white;
   font-size: 20px;
@@ -389,5 +406,126 @@ label {
   border: none;
   font-weight: 300;
   margin: 30px 0 0 0;
+  cursor: pointer;
 }
 
+
+
+
+
+
+
+
+.dateLabel {
+  font-size: 20px;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+}
+
+#id_date {
+  height: 40px;
+  font-size: 20px;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
+
+.textAreaContent { 
+  height: 40px;
+  font-size: 20px;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none
+}
+
+.noteSubmitButton {
+  background: black;
+  height: 60px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 300;
+  margin: 20px 0 100px 0;
+  cursor: pointer;
+}
+
+.textAreaContent::placeholder {
+  color: black;
+  opacity: 20%;
+}
+
+
+
+
+
+
+
+
+
+.confirmCancelPage {
+  min-height: 100vh;
+  width: 99vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmCancelMain {
+  display: flex;
+  height: auto;
+  width: 450px;
+  margin: 0px 0 60px 0;
+  flex-direction: column;
+}
+
+.confirmCancelBlock {
+  display: flex;
+  flex-wrap: wrap;
+  height: 70px;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+}
+
+.confirmSubmit {
+  background: black;
+  height: 100%;
+  width: 70%;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.confirmCancel{
+  background: red;
+  height: 100%;
+  width: 29%;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmCancelHeading {
+  font-size: 35px;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  padding: 0;
+  line-height: 1;
+  text-align: center;
+}

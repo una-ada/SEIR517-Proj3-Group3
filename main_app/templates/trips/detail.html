@@ -16,12 +16,13 @@
     </a>
   </nav>
 </nav>
-<main>
+<main id="mainDetail">
   <header id="headerSectionDetail">
     <div id="headerDetail">
       <h1 id="tripTitleDetail">{{ trip.title }}</h1>
       <p id="tripUserNameDetail">{{ trip.user.username }}</p>
     </div>
+    {% if user.id is trip.user_id %}
     <div id="headerCRUDSection">
       <a href="{% url 'trips_update' trip.id %}" class="CRUDButton">
         <div class="navIcon">
@@ -42,6 +43,8 @@
         </div>
       </a>
     </div>
+    {% else %}
+    {% endif %}
   </header>
   <div class="sectionBreaker"></div>
   <div class="journalHeader">
@@ -57,23 +60,63 @@
       </div>
     </a>
   </div>
-
+  {% if user.id is trip.user_id %}
   <form
     action="{% url 'add_diary_entry' trip.id %}"
     method="post"
     class="formBlock"
   >
-    {% csrf_token %} {{ diary_entry_form.as_p }}
-    <input type="submit" class="submitButton" value="Add Diary Entry" />
+    {% csrf_token %}  <!-- {{ diary_entry_form.as_p }} -->
+    <p>
+      <label for="id_date" class="dateLabel">Date:</label>
+      <div class="modal datepicker-modal" id="modal-42246662-a16e-376e-2ac0-806364b2fa58" tabindex="0">
+        <div class="modal-content datepicker-container">
+          <div class="datepicker-date-display">
+            <span class="year-text">2021</span>
+            <span class="date-text">Thu, Jul 15</span>
+          </div>
+          <div class="datepicker-calendar-container">
+            <div class="datepicker-calendar">
+            </div>
+            <div class="datepicker-footer">
+              <button class="btn-flat datepicker-clear waves-effect" style="visibility: hidden;" type="button">
+              </button>
+              <div class="confirmation-btns">
+                <button class="btn-flat datepicker-cancel waves-effect" type="button">Cancel</button>
+                <button class="btn-flat datepicker-done waves-effect" type="button">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="text" name="date" required="" id="id_date">
+    </p>
+    <p>
+      <label for="id_content" class="dateLabel">Content:</label>
+      <textarea name="content"
+       cols="40"
+       rows="10" 
+       required="" 
+       id="id_content" 
+       class="textAreaContent" 
+       placeholder="e.g. Your thoughts ..."
+       ></textarea>
+    </p>
+
+    <input type="submit" class="noteSubmitButton" value="Add Diary Entry" />
   </form>
+  {% else %}
+  {% endif %}
+
 
   <div id="diaryContentBlock">
     {% for diary_entry in trip.diary_entry_set.all %}
     <div class="diaryBlock">
-      <div id="headerSectionDetail">
+      <div id="noteSectionDetail">
         <div id="headerDetail">
           <p class="diaryBlockText">{{ diary_entry.date }}</p>
         </div>
+        {% if user.id is trip.user_id %}
         <div id="headerCRUDSection">
           <a href="{%url 'diary_update' diary_entry.pk%}" class="CRUDButton">
             <div class="navIcon">
@@ -94,6 +137,8 @@
             </div>
           </a>
         </div>
+        {% else %}
+        {% endif %}
       </div>
       <p class="diaryBlockText">{{ diary_entry.content }}</p>
     </div>
@@ -105,19 +150,34 @@
     <h3 class="diaryEntryHeading">Other user comments</h3>
   </div>
 
+
   <form action="{% url 'add_note' trip.id %}" method="post" class="formBlock">
-    {% csrf_token %} {{ note_form.as_p }}
-    <input type="submit" class="submitButton" value="Add Note" />
+    {% csrf_token %} <!-- {{ note_form.as_p }} -->
+    <p>
+      <label for="id_content" class="dateLabel">Your Comment:</label> 
+      <textarea name="content" 
+       cols="40" 
+       rows="10" 
+       required="" 
+       id="id_content" 
+       class="textAreaContent" 
+       placeholder="e.g. Your thoughts ..." 
+       spellcheck="false"
+       ></textarea>
+    </p>
+    <input type="submit" class="noteSubmitButton" value="Add Comment" />
   </form>
+
 
   <div id="diaryContentBlock">
     {% for note in trip.note_set.all %}
     <div class="diaryBlock">
-      <div id="headerSectionDetail">
+      <div id="noteSectionDetail">
         <div id="headerDetail">
           <p class="diaryBlockText">{{ user.username }}</p>
         </div>
         <div id="headerCRUDSection">
+          {% if user.id is note.user_id %}
           <a href="{% url 'note_update' note.pk %}" class="CRUDButton">
             <div class="navIcon">
               <img
@@ -136,6 +196,8 @@
               />
             </div>
           </a>
+          {% else %}
+          {% endif %}
         </div>
       </div>
       <p class="diaryBlockText">{{ note.content }}</p>
