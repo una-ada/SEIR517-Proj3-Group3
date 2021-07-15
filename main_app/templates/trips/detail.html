@@ -1,8 +1,18 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+
+{% for photo in trip.photo_set.all %}
 <img
   id="tripImageDetail"
-  src="{% static '/css/main_app/tokyoFireworks.jpeg' %}"
+  src="{{photo.url}}"
 />
+{% endfor %}
+
+
+
+
+
+
+
 <nav id="navDetail">
   <nav id="formNav">
     <a href="/" class="CRUDButton">
