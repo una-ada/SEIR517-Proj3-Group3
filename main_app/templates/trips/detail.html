@@ -20,6 +20,7 @@
   <header id="headerSectionDetail">
     <div id="headerDetail">
       <h1 id="tripTitleDetail">{{ trip.title }}</h1>
+      <p id="tripTravelDetail">{{ trip.from_location }} - {{ trip.to_location}}</p>
       <p id="tripUserNameDetail">{{ trip.user.username }}</p>
     </div>
     {% if user.id is trip.user_id %}
