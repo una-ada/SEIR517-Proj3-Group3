@@ -40,7 +40,7 @@ def trip_create(request):
 
 class TripUpdate(LoginRequiredMixin, UpdateView):
   model = Trip
-  fields = '__all__'
+  fields = ['title', 'from_location', 'to_location']
 
 class TripDelete(LoginRequiredMixin, DeleteView):
   model = Trip
