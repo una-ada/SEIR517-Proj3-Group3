@@ -3,8 +3,16 @@ from . import views
 
 urlpatterns = [
     path('', views.trips_index, name='index'),
-    path('trips/<int:trip_id>/', views.trips_detail, name='detail'),
-    path('trips/create/', views.trip_create, name='trips_create'),
+    path(
+        'trips/<int:trip_id>/', 
+        views.trips_detail, 
+        name='detail'
+    ),
+    path(
+        'trips/create/', 
+        views.trip_create, 
+        name='trips_create'
+    ),
     path(
         'trips/<int:pk>/update/',
         views.TripUpdate.as_view(),
@@ -20,7 +28,11 @@ urlpatterns = [
         views.add_diary_entry,
         name='add_diary_entry'
     ),
-    path('trips/<int:trip_id>/add_note/', views.add_note, name='add_note'),
+    path(
+        'trips/<int:trip_id>/add_note/', 
+        views.add_note, 
+        name='add_note'
+    ),
     path(
         'diary/<int:pk>/update/',
         views.DiaryUpdate.as_view(),
@@ -41,5 +53,9 @@ urlpatterns = [
         views.NoteDelete.as_view(),
         name='note_delete'
     ),
-    path('accounts/signup/', views.signup, name='signup'),
+    path(
+        'accounts/signup/', 
+        views.signup, 
+        name='signup'
+    ),
 ]

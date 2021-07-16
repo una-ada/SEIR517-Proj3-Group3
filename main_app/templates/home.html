@@ -1,12 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-
-
 <main>
   {% include 'partials/header.html' %}
   <div class="generalContent">
     <div class="generalContentHeading">
       <p>Discover Other Trips</p>
-      <a id="seeMoreButton">See More</a>
     </div>
     <div class="generalContentBlock">
       {% for trip in trips %}

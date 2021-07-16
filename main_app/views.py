@@ -11,7 +11,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 import boto3
 import uuid
-#from django.views.generic import ListView, DetailView
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'tabbyimages'
@@ -46,9 +45,6 @@ class TripUpdate(LoginRequiredMixin, UpdateView):
 class TripDelete(LoginRequiredMixin, DeleteView):
   model = Trip
   success_url = '/'
-
-# Define the home view
-# Create your views here.
 
 def trips_index(request):
   trips = Trip.objects.all()
