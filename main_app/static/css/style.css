@@ -9,6 +9,7 @@ main {
   display: flex;
   height: auto;
   width: 76%;
+  max-width: 1080px;
   margin: 60px 0 60px 0;
   flex-direction: column;
 }
@@ -386,6 +387,14 @@ label {
   font-size: 20px;
   outline: none
 }
+
+#formFileInput {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
 
 .inputLine {
   background: black;
