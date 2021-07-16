@@ -16,11 +16,6 @@ urlpatterns = [
         name='trips_delete'
     ),
     path(
-        'trips/<int:trip_id>/add_photo/', 
-        views.add_photo, 
-        name='add_photo'
-    ),
-    path(
         'trips/<int:trip_id>/add_diary_entry/',
         views.add_diary_entry,
         name='add_diary_entry'

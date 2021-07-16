@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+
+
 <main>
   {% include 'partials/header.html' %}
   <div class="generalContent">
@@ -9,20 +11,22 @@
     <div class="generalContentBlock">
       {% for trip in trips %}
       <a id="tripBlock" href="/trips/{{ trip.id }}">
+        
         <img
           id="tripImage"
-          src="{% static '/css/main_app/tokyoFireworks.jpeg' %}"
+          src="{{trip.photo_set.first.url}}"
         />
+        
         <div class="tripImageShading"></div>
         <div class="tripContent">
           <div class="tripDetailBlock">
             <p id="tripName">{{ trip.title }}</p>
-            <p id="tripUserName">{{ trip.user.username }}</p>
+            <p id="tripUserName">{{ trip.user.username }}</p>   
           </div>
         </div>
       </a>
       {% endfor %}
     </div>
   </div>
-</main>
 {% endblock %}
+
