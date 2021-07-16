@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+
+{% for photo in trip.photo_set.all %}
 <img
   id="tripImageDetail"
-  src="{% static '/css/main_app/tokyoFireworks.jpeg' %}"
+  src="{{photo.url}}"
 />
+{% endfor %}
+
 <nav id="navDetail">
   <nav id="formNav">
     <a href="/" class="CRUDButton">
@@ -50,16 +54,6 @@
   <div class="sectionBreaker"></div>
   <div class="journalHeader">
     <h3 class="diaryEntryHeading">User Diary Entries</h3>
-    <a class="navOtherButton" href="">
-      <p class="navOtherButtonText">Manage Trip Diary</p>
-      <div class="navIcon">
-        <img
-          id="navIconImage"
-          src="{% static '/css/main_app/edit.svg' %}"
-          alt="Add Icon"
-        />
-      </div>
-    </a>
   </div>
   {% if user.id is trip.user_id %}
   <form

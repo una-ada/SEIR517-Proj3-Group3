@@ -1,39 +1,55 @@
+from django.forms.models import inlineformset_factory
 from django.http.response import HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Diary_Entry, Trip, Note
-from .forms import Diary_EntryForm, NoteForm
+from .models import Diary_Entry, Trip, Note, Photo
+from .forms import Diary_EntryForm, NoteForm, TripForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-#from django.views.generic import ListView, DetailView
+import boto3
+import uuid
 
-class TripCreate(LoginRequiredMixin, CreateView):
-  model = Trip
-  # This can't be '__all__', probably because the form is missing the user
-  # field which needs to be added by the validation method!
-  fields = ['title', 'from_location', 'to_location']
-  
-  def form_valid(self, form):
-    form.instance.user = self.request.user
-    return super().form_valid(form)
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'tabbyimages'
+
+def trip_create(request):
+  ModelForm = inlineformset_factory(Trip, Photo, exclude=['user'])
+  if request.method == 'POST':
+    form = TripForm(request.POST)
+    if form.is_valid():
+      trip = form.save(commit=False)
+      trip.user = request.user
+      trip.save()
+      photo_file = request.FILES.get('photo-file', None)
+      if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.
+                                                     rfind('.'):]
+        try:
+          s3.upload_fileobj(photo_file, BUCKET, key)
+          url = f"{S3_BASE_URL}{BUCKET}/{key}"
+          Photo.objects.create(url=url, trip=trip)
+        except:
+          print('An error occurred uploading file to S3')
+        return redirect('/')
+  else:
+    return render(request, 'main_app/trip_form.html')
 
 class TripUpdate(LoginRequiredMixin, UpdateView):
   model = Trip
-  fields = '__all__'
+  fields = ['title', 'from_location', 'to_location']
 
 class TripDelete(LoginRequiredMixin, DeleteView):
   model = Trip
   success_url = '/'
 
-# Define the home view
-# Create your views here.
-
 def trips_index(request):
   trips = Trip.objects.all()
-  return render(request, 'home.html', {'trips': trips})
+  photos = Photo.objects.all()
+  return render(request, 'home.html', {'trips': trips, 'photos': photos})
 
 def trips_detail(request, trip_id):
   trip = Trip.objects.get(id=trip_id)
