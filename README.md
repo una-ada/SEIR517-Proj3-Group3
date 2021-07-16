@@ -3,7 +3,11 @@ The idea for this application was that a traveler could explore the world lightl
 
 Screenshots
 
-
+<img src='images/homepage.png'>
+<img src='images/createtrip.png'>
+<img src='images/diary.png'>
+<img src='images/editentry.png'>
+<img src='images/comment.png'>
 
 Technologies Used
 
